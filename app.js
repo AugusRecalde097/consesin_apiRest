@@ -1,5 +1,5 @@
 import express, { response } from 'express'
-
+import { PORT } from './config.js'
 import {
     getPersona,
     getPersonas,
@@ -9,22 +9,13 @@ import {
 
 import bcrypt from 'bcrypt'
 
-import cors from "cors";
-
-const corsOptions = {
-  origin: "http://127.0.0.1:5173", // specify the allowed origin
-  methods: ["POST", "GET"], // specify the allowed methods
-  credentials: true, // allow sending credentials (cookies, authentication)
-};
-
 
 const app = express()
 app.use(express.json())
-app.use(cors(corsOptions));
 
 
-app.listen(8080, () => {
-    console.log('Server Running on port 8080')
+app.listen(PORT, () => {
+    console.log('Server Running on port', PORT)
 })
 
 // Datos de una persona en espesifico.
